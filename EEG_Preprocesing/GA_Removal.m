@@ -1,0 +1,13 @@
+function EEG_filtered = GA_Removal(input_EEG)
+%Removes EEG Gradient Artifact induced by MRI Scanner using the bcilab  pop_fmrib_fastr
+%   This should be the first step in preprocessing, as the GA removal works
+%   better before other filtering
+%Input: 
+%   input_EEG - [eeglab EEG format] EEG without Gradient artifact removed
+%Output:
+%   EEG_filtered - [eeglab EEG format] EEG with GA removed
+
+%convert EEG data to double (unknown reason from legacy code)
+input_EEG.data = double(input_EEG.data);
+%Uses Gradient Artifact removal from Legacy Code
+EEG_filtered = pop_fmrib_fastr (input_EEG, [], 10, 30, 'R128', 0, 0, 0, 0, 0, 0, [], 0);
