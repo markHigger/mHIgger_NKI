@@ -9,5 +9,6 @@ function EEG_filtered = GA_Removal(input_EEG)
 
 %convert EEG data to double (unknown reason from legacy code)
 input_EEG.data = double(input_EEG.data);
-%Uses Gradient Artifact removal from Legacy Code
+
+%Uses Gradient Artifact removal from Legacy Code with default func perams
 EEG_filtered = pop_fmrib_fastr (input_EEG, [], 10, 30, 'R128', 0, 0, 0, 0, 0, 0, [], 0);
