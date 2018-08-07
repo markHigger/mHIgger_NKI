@@ -9,13 +9,15 @@ EEG_data = double(EEG_input.data);
 % Bandpass frequency range cutoff based on sampling rate
 Fn_lo = Fn - 2;
 Fn_hi = Fn + 2;
-Wnotch = [Fn_lo Fn_hi]*2/F_srate;
+Wnotch = [Fn_lo Fn_hi]*2/EEG_input.srate;
 
 %Design Low order butterworth Filter 
 N = 2;
 [a,b]=butter(N,Wnotch,'stop');
 
 %Filter data
+nChannels = EEG_input.nbchan;
+nSamples = EEG_input.pnts;
 filterData = zeros(nChannels,nSamples);
 for chanIdx = 1:nChannels
     % Notch filter 60Hz noise with notch filter
