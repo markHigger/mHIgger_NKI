@@ -148,12 +148,12 @@ if (removeNotch)
         clear EEG
     end
 else
-    fprintf('File with bandpass filter already exists');
+    fprintf('File with bandpass filter already exists \n');
 end
 %% filter out Notch at 60 hz
 if (removeNotch)
-    %if previos filtering was skipped load EEG_GA from file 
-    %   else use EEG_GA from Gradient removal step
+    %if previos filtering was skipped load EEG_BP from file 
+    %   else use EEG_BP from BP step
     if ~removeBP
         fileMat = load([fileName_bandpass,'.mat']);
         EEG_BP = fileMat.EEG;
@@ -167,20 +167,49 @@ if (removeNotch)
     F_Notch = 60;
     EEG_Notch = EEG_Notch_Matlab(EEG_BP, F_Notch);
     %TODO: save output
-    if (saveBP_Mat)
+    if (saveNotch_Mat)
         fprintf('saving Notch filterd eeg as mat file \n');
         EEG = EEG_Notch;
         save([fileName_notch,'.mat'],'EEG');
         clear EEG
     end
-    if (saveBP_Set)
+    if (saveNotch_Set)
         fprintf('saving Notch filterd eeg as set file \n');
         EEG = EEG_Notch;
         save([fileName_notch,'.set'],'EEG');
         clear EEG
     end
 else
-    fprintf('File with bandpass filter already exists');
+    fprintf('File with Notch filter already exists \n');
+end
+%% Remove EEG and BCG
+if (removePA)
+    %if previos filtering was skipped load EEG_Notch from file 
+    %   else use EEG_Notch from Notch removal step
+    if ~removeBP
+        fileMat = load([fileName_notch,'.mat']);
+        EEG_Notch = fileMat.EEG;
+        clear('fileMat');
+    end
+    fprintf('applying PA removal \n')
+
+    %remove PAs
+    EEG_PA = EEG_PA_Removal_Matlab(EEG_Notch);
+
+    if (savePA_Mat)
+        fprintf('saving PA removed eeg as mat file \n');
+        EEG = EEG_PA;
+        save([fileName_bcg,'.mat'],'EEG');
+        clear EEG
+    end
+    if (savePA_Set)
+        fprintf('saving PA removed eeg as set file \n');
+        EEG = EEG_PA;
+        save([fileName_bcg,'.set'],'EEG');
+        clear EEG
+    end
+else
+    fprintf('File with PA removal already exists');
 end
 
 
