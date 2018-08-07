@@ -233,13 +233,13 @@ if (resample)
     if (saveResamp_Mat)
         fprintf('saving resampled eeg as mat file \n');
         EEG = EEG_Resample;
-        save([fileName_bcg,'.mat'],'EEG');
+        save([fileName_resample,'.mat'],'EEG');
         clear EEG
     end
     if (saveResamp_Set)
         fprintf('saving resampled eeg as set file \n');
         EEG = EEG_Resample;
-        save([fileName_bcg,'.set'],'EEG');
+        save([fileName_resample,'.set'],'EEG');
         clear EEG
     end
 else
