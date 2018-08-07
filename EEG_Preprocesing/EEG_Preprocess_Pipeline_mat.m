@@ -21,8 +21,12 @@ function EEG_Preprocess_Pipeline_mat(filepath_input, varargin)
 %       files can be in Matlab, and .set files can be used in eeglab
 %
 %Version:
-%   Current - 0.1:
-%       Prefunctional Build, has input parsing and program control flow
+%   Current - 1.0:
+%       functional Build
+%   Future Additions
+%       Filter design through functions
+%       ability to re-order filtering stages
+%       possible class based implementaion
 
 %% Parse function input
 %Set input parser names and default values
