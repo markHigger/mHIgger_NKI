@@ -186,7 +186,7 @@ end
 if (removePA)
     %if previos filtering was skipped load EEG_Notch from file 
     %   else use EEG_Notch from Notch removal step
-    if ~removeBP
+    if ~removeNotch
         fileMat = load([fileName_notch,'.mat']);
         EEG_Notch = fileMat.EEG;
         clear('fileMat');
@@ -212,4 +212,32 @@ else
     fprintf('File with PA removal already exists');
 end
 
+%% Resample Data
+if (resample)
+    %if previos filtering was skipped load EEG_Notch from file 
+    %   else use EEG_Notch from Notch removal step
+    if ~removePA
+        fileMat = load([fileName_bcg,'.mat']);
+        EEG_PA = fileMat.EEG;
+        clear('fileMat');
+    end
+    fprintf('resampling data \n')
+    resampleFreq = 500;
+    %resample data
+    EEG_Resample = EEG_Resample_Matlab(EEG_PA, resampleFreq);
 
+    if (saveResamp_Mat)
+        fprintf('saving resampled eeg as mat file \n');
+        EEG = EEG_Resample;
+        save([fileName_bcg,'.mat'],'EEG');
+        clear EEG
+    end
+    if (saveResamp_Set)
+        fprintf('saving resampled eeg as set file \n');
+        EEG = EEG_Resample;
+        save([fileName_bcg,'.set'],'EEG');
+        clear EEG
+    end
+else
+    fprintf('File with PA removal already exists');
+end
