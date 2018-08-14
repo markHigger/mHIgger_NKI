@@ -1,0 +1,122 @@
+<html><meta charset="UTF-8"><pre>
+<font color=blue>mcc -W lib:ParResPkgNew -T link:lib -d /Users/markhigger/Documents/NKI/mHigger_NKI/mtlbPkgTest/ParResPkgNew/for_testing -v /Users/markhigger/Documents/MATLAB/ParRes.m </font>
+Compiler version: 6.5 (R2017b)
+
+Dependency analysis by REQUIREMENTS.
+
+[Warning: The name of a shared library should begin with the letters "lib".
+'ParResPkgNew' does not.] 
+Parsing file "/Users/markhigger/Documents/MATLAB/ParRes.m"
+	(Referenced from: "Compiler Command Line").
+Deleting 0 temporary MEX authorization files.
+Generating file "/Users/markhigger/Documents/NKI/mHigger_NKI/mtlbPkgTest/ParResPkgNew/for_testing/ParResPkgNew.h".
+Generating file "/Users/markhigger/Documents/NKI/mHigger_NKI/mtlbPkgTest/ParResPkgNew/for_testing/ParResPkgNew.c".
+Generating file "/Users/markhigger/Documents/NKI/mHigger_NKI/mtlbPkgTest/ParResPkgNew/for_testing/ParResPkgNew.exports".
+Generating file "/Users/markhigger/Documents/NKI/mHigger_NKI/mtlbPkgTest/ParResPkgNew/for_testing/readme.txt".
+Executing command: "/Applications/MATLAB_R2017b.app/bin/mbuild"  -client mbuild -O -v -output "ParResPkgNew" -I"/Users/markhigger/Documents/NKI/mHigger_NKI/mtlbPkgTest/ParResPkgNew/for_testing" "/Users/markhigger/Documents/NKI/mHigger_NKI/mtlbPkgTest/ParResPkgNew/for_testing/ParResPkgNew.c" CMDLINE150=''  CMDLINE200='$LD $LDFLAGS $OBJS $LINKOPTIM $LINKEXPORT $CLIBS $LINKLIBS -o $EXE' LDEXT='.dylib' LDTYPE='-dynamiclib' LDFLAGS='-arch x86_64 -mmacosx-version-min=$MACOSX_DEPLOYMENT_TARGET -Wl,-syslibroot,$ISYSROOT $LDTYPE $LINKEXPORT -framework CoreFoundation -install_name "@loader_path/$EXENAME$LDEXT"' -outdir "/Users/markhigger/Documents/NKI/mHigger_NKI/mtlbPkgTest/ParResPkgNew/for_testing" -nobundle
+Verbose mode is on.
+No MEX options file identified; looking for an implicit selection.
+... Looking for compiler 'Xcode with Clang' ...
+... Looking for environment variable 'DEVELOPER_DIR' ...No.
+... Executing command 'xcode-select -print-path' ...Yes ('/Applications/Xcode.app/Contents/Developer').
+... Looking for folder '/Applications/Xcode.app/Contents/Developer' ...Yes.
+... Executing command 'which xcrun' ...Yes ('/usr/bin/xcrun').
+... Looking for folder '/usr/bin' ...Yes.
+... Executing command 'defaults read com.apple.dt.Xcode IDEXcodeVersionForAgreedToGMLicense' ...No.
+... Executing command 'defaults read /Library/Preferences/com.apple.dt.Xcode IDEXcodeVersionForAgreedToGMLicense' ...Yes ('9.2').
+... Executing command '
+agreed=9.2 
+ if echo $agreed | grep -E '[\.\"]' >/dev/null; then 
+ lhs=`expr "$agreed" : '\([0-9]*\)[\.].*'` 
+  rhs=`expr "$agreed" : '[0-9]*[\.]\(.*\)$'` 
+ if echo $rhs | grep -E '[\."]' >/dev/null; then 
+ rhs=`expr "$rhs" : '\([0-9]*\)[\.].*'` 
+ fi 
+ if [ $lhs -gt 4 ] || ( [ $lhs -eq 4 ] && [ $rhs -ge 3 ] ); then 
+ echo $agreed 
+ else 
+ exit 1
+ fi 
+ fi' ...Yes ('9.2').
+... Executing command 'xcrun -sdk macosx --show-sdk-path' ...Yes ('/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk').
+... Executing command 'xcrun -sdk macosx --show-sdk-version' ...Yes ('10.13').
+Found installed compiler 'Xcode with Clang'.
+Options file details
+-------------------------------------------------------------------
+	Compiler location: /Applications/Xcode.app/Contents/Developer
+	Options file: /Applications/MATLAB_R2017b.app/bin/maci64/mexopts/clang_maci64.xml
+	CMDLINE100 : /usr/bin/xcrun -sdk macosx10.13 clang -c -DMX_COMPAT_64  -DUSE_MEX_CMD   -DUNIX -DX11 -I"/Users/markhigger/Documents/NKI/mHigger_NKI/mtlbPkgTest/ParResPkgNew/for_testing"  -I"/Applications/MATLAB_R2017b.app/extern/include" -I"/Applications/MATLAB_R2017b.app/simulink/include" -fno-common -arch x86_64 -mmacosx-version-min=10.9 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -O2 -fwrapv -DNDEBUG "/Users/markhigger/Documents/NKI/mHigger_NKI/mtlbPkgTest/ParResPkgNew/for_testing/ParResPkgNew.c" -o /var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/mex_11838630973012_15001/ParResPkgNew.o
+	CMDLINE200 : /usr/bin/xcrun -sdk macosx10.13 clang -arch x86_64 -mmacosx-version-min=10.9 -Wl,-syslibroot,/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -dynamiclib  -framework CoreFoundation -install_name "@loader_path/ParResPkgNew.dylib" /var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/mex_11838630973012_15001/ParResPkgNew.o  -O   -L"/Applications/MATLAB_R2017b.app/runtime/maci64" -lmwmclmcrrt -o /Users/markhigger/Documents/NKI/mHigger_NKI/mtlbPkgTest/ParResPkgNew/for_testing/ParResPkgNew.dylib
+	CC : /usr/bin/xcrun -sdk macosx10.13 clang
+	CXX : /usr/bin/xcrun -sdk macosx10.13 clang++
+	DEFINES : -DMX_COMPAT_64  -DUSE_MEX_CMD   -DUNIX -DX11
+	MATLABMEX : 
+	MACOSX_DEPLOYMENT_TARGET : 10.9
+	CFLAGS : -fno-common -arch x86_64 -mmacosx-version-min=10.9 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk
+	INCLUDE : -I"/Users/markhigger/Documents/NKI/mHigger_NKI/mtlbPkgTest/ParResPkgNew/for_testing"  -I"/Applications/MATLAB_R2017b.app/extern/include" -I"/Applications/MATLAB_R2017b.app/simulink/include"
+	COPTIMFLAGS : -O2 -fwrapv -DNDEBUG
+	CDEBUGFLAGS : -g
+	LD : /usr/bin/xcrun -sdk macosx10.13 clang
+	LDXX : /usr/bin/xcrun -sdk macosx10.13 clang++
+	LDFLAGS : -arch x86_64 -mmacosx-version-min=10.9 -Wl,-syslibroot,/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -dynamiclib  -framework CoreFoundation -install_name "@loader_path/ParResPkgNew.dylib"
+	LDBUNDLE : -bundle 
+	FUNCTIONMAP : "/Applications/MATLAB_R2017b.app/extern/lib/maci64/mexFunction.map"
+	VERSIONMAP : "/Applications/MATLAB_R2017b.app/extern/lib/maci64/c_exportsmexfileversion.map"
+	LINKEXPORT : 
+	LINKEXPORTVER : 
+	LINKLIBS : -L"/Applications/MATLAB_R2017b.app/runtime/maci64" -lmwmclmcrrt
+	LDOPTIMFLAGS : -O
+	LDDEBUGFLAGS : -g
+	OBJEXT : .o
+	LDEXT : .dylib
+	SETENV : CC="/usr/bin/xcrun -sdk macosx10.13 clang"
+                CXX="/usr/bin/xcrun -sdk macosx10.13 clang++"
+                CFLAGS="-fno-common -arch x86_64 -mmacosx-version-min=10.9 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -DMX_COMPAT_64  -DUSE_MEX_CMD   -DUNIX -DX11"
+                CXXFLAGS="-fno-common -arch x86_64 -mmacosx-version-min=10.9 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -fobjc-arc -std=c++11 -stdlib=libc++ -DMX_COMPAT_64  -DUSE_MEX_CMD   -DUNIX -DX11"
+                COPTIMFLAGS="-O2 -fwrapv -DNDEBUG"
+                CXXOPTIMFLAGS="-O2 -fwrapv -DNDEBUG"
+                CDEBUGFLAGS="-g"
+                CXXDEBUGFLAGS="-g"
+                LD="/usr/bin/xcrun -sdk macosx10.13 clang"
+                LDXX="/usr/bin/xcrun -sdk macosx10.13 clang++"
+                LDFLAGS="-arch x86_64 -mmacosx-version-min=10.9 -Wl,-syslibroot,/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -dynamiclib  -framework CoreFoundation -install_name "@loader_path/ParResPkgNew.dylib" -L"/Applications/MATLAB_R2017b.app/runtime/maci64" -lmwmclmcrrt "
+                LDDEBUGFLAGS="-g"
+	DEVELOPER_DIR_CHECK : 
+	XCODE_DIR : /Applications/Xcode.app/Contents/Developer
+	XCRUN_DIR : /usr/bin
+	XCODE_AGREED_VERSION : 9.2
+	ISYSROOT : /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk
+	SDKVER : 10.13
+	MATLABROOT : /Applications/MATLAB_R2017b.app
+	ARCH : maci64
+	CMDLINE150 : 
+	LDTYPE : -dynamiclib
+	SRC : "/Users/markhigger/Documents/NKI/mHigger_NKI/mtlbPkgTest/ParResPkgNew/for_testing/ParResPkgNew.c"
+	OBJ : /var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/mex_11838630973012_15001/ParResPkgNew.o
+	OBJS : /var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/mex_11838630973012_15001/ParResPkgNew.o 
+	SRCROOT : /Users/markhigger/Documents/NKI/mHigger_NKI/mtlbPkgTest/ParResPkgNew/for_testing/ParResPkgNew
+	DEF : /var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/mex_11838630973012_15001/ParResPkgNew.def
+	EXP : /Users/markhigger/Documents/NKI/mHigger_NKI/mtlbPkgTest/ParResPkgNew/for_testing/ParResPkgNew.exp
+	LIB : /Users/markhigger/Documents/NKI/mHigger_NKI/mtlbPkgTest/ParResPkgNew/for_testing/ParResPkgNew.lib
+	EXE : /Users/markhigger/Documents/NKI/mHigger_NKI/mtlbPkgTest/ParResPkgNew/for_testing/ParResPkgNew.dylib
+	ILK : /Users/markhigger/Documents/NKI/mHigger_NKI/mtlbPkgTest/ParResPkgNew/for_testing/ParResPkgNew.ilk
+	MANIFEST : /Users/markhigger/Documents/NKI/mHigger_NKI/mtlbPkgTest/ParResPkgNew/for_testing/ParResPkgNew.dylib.manifest
+	TEMPNAME : /Users/markhigger/Documents/NKI/mHigger_NKI/mtlbPkgTest/ParResPkgNew/for_testing/ParResPkgNew
+	EXEDIR : /Users/markhigger/Documents/NKI/mHigger_NKI/mtlbPkgTest/ParResPkgNew/for_testing/
+	EXENAME : ParResPkgNew
+	OPTIM : -O2 -fwrapv -DNDEBUG
+	LINKOPTIM : -O
+-------------------------------------------------------------------
+Building with 'Xcode with Clang'.
+/usr/bin/xcrun -sdk macosx10.13 clang -c -DMX_COMPAT_64  -DUSE_MEX_CMD   -DUNIX -DX11 -I"/Users/markhigger/Documents/NKI/mHigger_NKI/mtlbPkgTest/ParResPkgNew/for_testing"  -I"/Applications/MATLAB_R2017b.app/extern/include" -I"/Applications/MATLAB_R2017b.app/simulink/include" -fno-common -arch x86_64 -mmacosx-version-min=10.9 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -O2 -fwrapv -DNDEBUG "/Users/markhigger/Documents/NKI/mHigger_NKI/mtlbPkgTest/ParResPkgNew/for_testing/ParResPkgNew.c" -o /var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/mex_11838630973012_15001/ParResPkgNew.o
+/usr/bin/xcrun -sdk macosx10.13 clang -arch x86_64 -mmacosx-version-min=10.9 -Wl,-syslibroot,/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -dynamiclib  -framework CoreFoundation -install_name "@loader_path/ParResPkgNew.dylib" /var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/mex_11838630973012_15001/ParResPkgNew.o  -O   -L"/Applications/MATLAB_R2017b.app/runtime/maci64" -lmwmclmcrrt -o /Users/markhigger/Documents/NKI/mHigger_NKI/mtlbPkgTest/ParResPkgNew/for_testing/ParResPkgNew.dylib
+<font color=blue>Packaging...</font>
+Creating the bundle...
+Copying /Applications/MATLAB_R2017b.app/toolbox/compiler/maci64/setup.app to /Users/markhigger/Documents/NKI/mHigger_NKI/mtlbPkgTest/ParResPkgNew/for_redistribution/MyAppInstaller_web.app.
+Copying /Users/markhigger/Documents/NKI/mHigger_NKI/mtlbPkgTest/ParResPkgNew/for_redistribution/bundle.zip to /Users/markhigger/Documents/NKI/mHigger_NKI/mtlbPkgTest/ParResPkgNew/for_redistribution/MyAppInstaller_web.app/Contents/Resources/bundle.zip.
+Copying /Applications/MATLAB_R2017b.app/toolbox/compiler/Resources/default_splash.png to /Users/markhigger/Documents/NKI/mHigger_NKI/mtlbPkgTest/ParResPkgNew/for_redistribution/MyAppInstaller_web.app/Contents/Resources/splash.png.
+Copying /Applications/MATLAB_R2017b.app/toolbox/compiler/Resources/default_icon.icns to /Users/markhigger/Documents/NKI/mHigger_NKI/mtlbPkgTest/ParResPkgNew/for_redistribution/MyAppInstaller_web.app/Contents/Resources/installer.icns.
+Web based installer created at /Users/markhigger/Documents/NKI/mHigger_NKI/mtlbPkgTest/ParResPkgNew/for_redistribution/MyAppInstaller_web.app.
+Packaging complete.
+Elapsed packaging time was: 37 seconds.
+</pre></html>
