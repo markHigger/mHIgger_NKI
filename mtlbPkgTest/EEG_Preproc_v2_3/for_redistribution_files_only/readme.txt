@@ -1,4 +1,4 @@
-EEG_Preproc_v2_3 C Shared Library
+EEG_Preproc_v2_3 MATLAB Python Package
 
 1. Prerequisites for Deployment 
 
@@ -23,35 +23,30 @@ in the MathWorks Documentation Center.
 NOTE: You will need administrator rights to run the MATLAB Runtime installer. 
 
 
-2. Files to Deploy and Package
+Verify that a Macintosh version of Python 2.7, 3.4, 3.5, and/or 3.6 is installed.
 
-Files to Package for Shared Libraries
-=====================================
--EEG_Preproc_v2_3.dylib
--EEG_Preproc_v2_3.h
--MCRInstaller.zip 
-    Note: if end users are unable to download the MATLAB Runtime using the
-    instructions in the previous section, include it when building your 
-    component by clicking the "Runtime downloaded from web" link in the
-    Deployment Tool.
--This readme file
+2. Installing the EEG_Preproc_v2_3 Package
 
-3. Definitions
+A. Change to the directory that contains the file setup.py and the subdirectory 
+EEG_Preproc_v2_3. If you do not have write permissions, copy all its contents to a 
+temporary location and change to that directory.
 
-For information on deployment terminology, go to
-http://www.mathworks.com/help and select MATLAB Compiler >
-Getting Started > About Application Deployment >
-Deployment Product Terms in the MathWorks Documentation
-Center.
+B. Execute the command:
 
-4. Appendix 
+    python setup.py install [options]
+    
+If you have full administrator privileges, and install to the default location, you do 
+not need to specify any options. Otherwise, use --user to install to your home folder, or 
+--prefix="installdir" to install to "installdir". In the latter case, add "installdir" to 
+the PYTHONPATH environment variable. For details, refer to:
 
-A. Mac systems:
-In the following directions, replace MR by the directory where MATLAB or the MATLAB 
-   Runtime is installed on the target machine.
+    https://docs.python.org/2/install/index.html
 
-If the environment variable DYLD_LIBRARY_PATH is undefined, set it to the following 
-   string:
+C. Set environment variables as follows:
+
+In the following directions, replace MR by the directory where MATLAB or the MATLAB Runtime is installed on the target machine.
+
+If the environment variable DYLD_LIBRARY_PATH is undefined, set it to the following string:
 
 MR/v93/runtime/maci64:MR/v93/sys/os/maci64:MR/v93/bin/maci64
 
@@ -59,17 +54,19 @@ If it is defined, set it to the following:
 
 ${DYLD_LIBRARY_PATH}:MR/v93/runtime/maci64:MR/v93/sys/os/maci64:MR/v93/bin/maci64
 
-    For more detailed information about setting the MATLAB Runtime paths, see Package and 
-   Distribute in the MATLAB Compiler SDK documentation in the MathWorks Documentation 
-   Center.
+3. Using the EEG_Preproc_v2_3 Package
 
+On the Mac, you must use the mwpython script, found in the bin directory of your MATLAB 
+Runtime, to start a session or script that imports your package. Execute:
 
-     
-        NOTE: To make these changes persistent after logout on Linux 
-              or Mac machines, modify the .cshrc file to include this  
-              setenv command.
-        NOTE: The environment variable syntax utilizes forward 
-              slashes (/), delimited by colons (:).  
+    mwpython -help
+    
+for more details. 
 
+NOTE: Ensure that you are using a 64-bit JVM.
+The EEG_Preproc_v2_3 package is on your Python path. To import it into a Python script or 
+session, execute:
 
+    import EEG_Preproc_v2_3
 
+If a namespace must be specified for the package, modify the import statement accordingly.
