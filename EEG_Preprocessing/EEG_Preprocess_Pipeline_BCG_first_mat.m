@@ -1,5 +1,5 @@
-function EEG_Preprocess_Pipeline_Oct(filepath_input, varargin)
-%This is the octave preprocesssing script for automating EEG preprocessign
+function success = EEG_Preprocess_Pipeline_mat(filepath_input, varargin)
+%This is the matlab preprocesssing script for automating EEG preprocessign
 %It takes in a BrainVision EEG format and creates a set of eeglab formatted
 %files of filtered eegs, by default creates only the final Mat file
 %
@@ -34,19 +34,19 @@ p = inputParser;
 p.KeepUnmatched = true;
 p.addRequired('filepath_input')
 [fileDir, fileName] = fileparts(filepath_input);
-p.addParamValue('filepath_output', fileDir)
-p.addParamValue('saveAll_Mat', 0);
-p.addParamValue('saveAll_Set', 0);
-p.addParamValue('saveGA_Mat', 0);
-p.addParamValue('saveGA_Set', 0);
-p.addParamValue('saveBP_Mat', 0);
-p.addParamValue('saveBP_Set', 0);
-p.addParamValue('saveNotch_Mat', 0);
-p.addParamValue('saveNotch_Set', 0);
-p.addParamValue('savePA_Mat', 0);
-p.addParamValue('savePA_Set', 0);
-p.addParamValue('saveResamp_Mat', 0);
-p.addParamValue('saveResamp_Set', 1);
+p.addParameter('filepath_output', fileDir)
+p.addParameter('saveAll_Mat', 0);
+p.addParameter('saveAll_Set', 0);
+p.addParameter('saveGA_Mat', 0);
+p.addParameter('saveGA_Set', 0);
+p.addParameter('saveBP_Mat', 0);
+p.addParameter('saveBP_Set', 0);
+p.addParameter('saveNotch_Mat', 0);
+p.addParameter('saveNotch_Set', 0);
+p.addParameter('savePA_Mat', 0);
+p.addParameter('savePA_Set', 0);
+p.addParameter('saveResamp_Mat', 0);
+p.addParameter('saveResamp_Set', 1);
 
 
 p.parse(filepath_input, varargin{:});
@@ -68,15 +68,16 @@ savePA_Set = p.Results.savePA_Set || saveAll_Set;
 saveResamp_Mat = p.Results.saveResamp_Mat || saveAll_Mat;
 saveResamp_Set = p.Results.saveResamp_Set || saveAll_Set;
 
+success = 0;
 %% Determain control flow of pipelines
 
 %TODO: Deteramine and set filenames 
 %filenames are [outputDir][inputfile(-extension)][Last Process][extension]
 %   eg: usr/documents/EEG_data/despicableme-02_Bandpass.set
 fileName_gradient = fullfile(filepath_output,[fileName,'_01_gradient']);
-fileName_bandpass = fullfile(filepath_output,[fileName,'_02_bandpass']);
-fileName_notch = fullfile(filepath_output,[fileName,'_03_notch']);
-fileName_bcg = fullfile(filepath_output,[fileName,'_04_bcg']);
+fileName_bandpass = fullfile(filepath_output,[fileName,'_03_bandpass']);
+fileName_notch = fullfile(filepath_output,[fileName,'_04_notch']);
+fileName_bcg = fullfile(filepath_output,[fileName,'_02_bcg']);
 fileName_resample = fullfile(filepath_output,[fileName,'_05_resample']);
 
 %TODO: Check if filenames exist in output path
@@ -89,11 +90,10 @@ resampExist = (exist([fileName_resample, '.mat'],'file'));
 %Set Control flags - a step should not be performed if the proceding
 %   files exist of previos process completion 
 resample = ~resampExist;
-removePA = ~PAExist && resample;
-removeNotch = ~NotchExist && removePA;
+removeNotch = ~NotchExist && resample;
 removeBP = ~BPExist && removeNotch;
-removeGA = ~GAExist && removeBP;
-
+removePA = ~PAExist && removeBP;
+removeGA = ~GAExist && removePA;
 
 %% Remove GA from EEG
 if removeGA
@@ -121,14 +121,50 @@ else
 end
 
 
-%% remove Bandpass from EEG
-if (removeNotch)
-    %if previos filtering was skipped load EEG_BA from file 
-    %   else use EEG_GA from Gradient removal step
+%% Remove ECG and BCG
+if (removePA)
+    %if previos filtering was skipped load EEG_Notch from file 
+    %   else use EEG_Notch from Notch removal step
     if ~removeGA
         fileMat = load([fileName_gradient,'.mat']);
-        EEG_GA = fileMat.EEG;
+        EEG_in = fileMat.EEG;
         clear('fileMat');
+    else
+        EEG_in = EEG_GA;
+    end
+    fprintf('applying PA removal \n')
+
+    %remove PAs
+    EEG_PA = EEG_PA_Removal_Matlab(EEG_in);
+
+    if (savePA_Mat)
+        fprintf('saving PA removed eeg as mat file \n');
+        EEG = EEG_PA;
+        save([fileName_bcg,'.mat'],'EEG');
+        clear EEG
+    end
+    if (savePA_Set)
+        fprintf('saving PA removed eeg as set file \n');
+        EEG = EEG_PA;
+        save([fileName_bcg,'.set'],'EEG');
+        clear EEG
+    end
+else
+    fprintf('File with PA removal already exists');
+end
+%SET OUTPUT
+success = 1;
+
+%% remove Bandpass from EEG
+if (removeBP)
+    %if previos filtering was skipped load EEG_BA from file 
+    %   else use EEG_GA from Gradient removal step
+    if ~removePA
+        fileMat = load([fileName_bcg,'.mat']);
+        EEG_in = fileMat.EEG;
+        clear('fileMat');
+    else
+        EEG_in = EEG_PA;
     end
     fprintf('applying bandpass filter\n')
 
@@ -137,18 +173,18 @@ if (removeNotch)
     %OPTIONAL TODO: specify freqs & filt info from function call
     F_low = 0.5;
     F_high = 70;
-    EEG_BP = EEG_Bandpass_Matlab(EEG_GA, F_low, F_high);
-    %TODO: save output
+    EEG_BP = EEG_Bandpass_Matlab(EEG_in, F_low, F_high);
+    %save output
     if (saveBP_Mat)
         fprintf('saving Bandpassfilterd eeg as mat file \n');
         EEG = EEG_BP;
-        save([fileName_bandpass,'.mat'],'EEG_BP');
+        save([fileName_bandpass,'.mat'],'EEG');
         clear EEG
     end
     if (saveBP_Set)
         fprintf('saving Bandpassfilterd eeg as set file \n');
         EEG = EEG_BP;
-        save([fileName_bandpass,'.set'],'EEG_BP');
+        save([fileName_bandpass,'.set'],'EEG');
         clear EEG
     end
 else
@@ -170,7 +206,7 @@ if (removeNotch)
     %OPTIONAL TODO: specify freqs & filt info from function call
     F_Notch = 60;
     EEG_Notch = EEG_Notch_Matlab(EEG_BP, F_Notch);
-    %TODO: save output
+    % save output
     if (saveNotch_Mat)
         fprintf('saving Notch filterd eeg as mat file \n');
         EEG = EEG_Notch;
@@ -186,62 +222,33 @@ if (removeNotch)
 else
     fprintf('File with Notch filter already exists \n');
 end
-%% Remove EEG and BCG
-if (removePA)
-    %if previos filtering was skipped load EEG_Notch from file 
-    %   else use EEG_Notch from Notch removal step
-    if ~removeNotch
-        fileMat = load([fileName_notch,'.mat']);
-        EEG_Notch = fileMat.EEG;
-        clear('fileMat');
-    end
-    fprintf('applying PA removal \n')
-
-    %remove PAs
-    EEG_PA = EEG_PA_Removal_Matlab(EEG_Notch);
-
-    if (savePA_Mat)
-        fprintf('saving PA removed eeg as mat file \n');
-        EEG = EEG_PA;
-        save([fileName_bcg,'.mat'],'EEG');
-        clear EEG
-    end
-    if (savePA_Set)
-        fprintf('saving PA removed eeg as set file \n');
-        EEG = EEG_PA;
-        save([fileName_bcg,'.set'],'EEG');
-        clear EEG
-    end
-else
-    fprintf('File with PA removal already exists');
-end
 
 %% Resample Data
-if (resample)
-    %if previos filtering was skipped load EEG_Notch from file 
-    %   else use EEG_Notch from Notch removal step
-    if ~removePA
-        fileMat = load([fileName_bcg,'.mat']);
-        EEG_PA = fileMat.EEG;
-        clear('fileMat');
-    end
-    fprintf('resampling data \n')
-    resampleFreq = 500;
-    %resample data
-    EEG_Resample = EEG_Resample_Matlab(EEG_PA, resampleFreq);
-
-    if (saveResamp_Mat)
-        fprintf('saving resampled eeg as mat file \n');
-        EEG = EEG_Resample;
-        save([fileName_resample,'.mat'],'EEG');
-        clear EEG
-    end
-    if (saveResamp_Set)
-        fprintf('saving resampled eeg as set file \n');
-        EEG = EEG_Resample;
-        save([fileName_resample,'.set'],'EEG');
-        clear EEG
-    end
-else
-    fprintf('File with PA removal already exists');
-end
+% if (resample)
+%     %if previos filtering was skipped load EEG_Notch from file 
+%     %   else use EEG_Notch from Notch removal step
+%     if ~removePA
+%         fileMat = load([fileName_bcg,'.mat']);
+%         EEG_PA = fileMat.EEG;
+%         clear('fileMat');
+%     end
+%     fprintf('resampling data \n')
+%     resampleFreq = 500;
+%     %resample data
+%     EEG_Resample = EEG_Resample_Matlab(EEG_PA, resampleFreq);
+% 
+%     if (saveResamp_Mat)
+%         fprintf('saving resampled eeg as mat file \n');
+%         EEG = EEG_Resample;
+%         save([fileName_resample,'.mat'],'EEG');
+%         clear EEG
+%     end
+%     if (saveResamp_Set)
+%         fprintf('saving resampled eeg as set file \n');
+%         EEG = EEG_Resample;
+%         save([fileName_resample,'.set'],'EEG');
+%         clear EEG
+%     end
+% else
+%     fprintf('File with PA removal already exists');
+% end

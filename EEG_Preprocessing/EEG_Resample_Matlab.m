@@ -6,5 +6,5 @@ function EEG_resampled = EEG_Resample_Matlab(EEG_input, resampleF)
 %output:
 %   EEG_resapmpled [eeglab EEG struct] - 
 
-EEG_input.pnts = length(EEG_input.times);
+EEG_input.pnts = length(EEG_input.data);
 EEG_resampled = pop_resample(EEG_input,resampleF);
