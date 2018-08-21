@@ -15,8 +15,8 @@ complete = 0; %function returns 0 on function failure
 % Get filename and director of input .eeg file
 [fileDir,fileName] = fileparts(inputFile);
 
-% Use pop_loadbv to extract EEG data, function uses header file (vhdr) and
-% eeg file
+% Uses eeglab method to convert bv data to eeglab 
+%function uses header file (vhdr) and eeg file
 [EEG, ~] = pop_loadbv(fileDir,[fileName,'.vhdr']); 
 
 % Save data to .set file (can be used by EEGLAB GUI)
