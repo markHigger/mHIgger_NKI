@@ -1,4 +1,4 @@
-function EEG_filtered = Notch_Mat_wrap(fileFull_input, fileFull_output, Fn, Fw, order)
+function complete = Notch_Mat_Wrap(fileFull_input, fileFull_output, Fn, Fw, order)
 %Applys Notch filter on eeglab EEG struct to remove radient electrical
 %noise
 %Input:
