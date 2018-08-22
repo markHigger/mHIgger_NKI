@@ -5,10 +5,10 @@ Created on Wed Aug 22 13:21:52 2018
 
 @author: mhigger
 """
-#TEST:import PreProcPkg_v11
+import PreProcPkg_v11
 
 def init():
-    #TEST:Funs = PreProcPkg_v11.initialize()
+    Funs = PreProcPkg_v11.initialize()
     Funs = True #TEST:
     
     print('Matlab Runtime compiler initialized \n')
