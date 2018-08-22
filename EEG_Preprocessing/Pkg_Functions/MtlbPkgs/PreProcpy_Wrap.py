@@ -9,7 +9,6 @@ import PreProcPkg_v11
 
 def init():
     Funs = PreProcPkg_v11.initialize()
-    Funs = True #TEST:
     
     print('Matlab Runtime compiler initialized \n')
     return Funs
@@ -58,7 +57,8 @@ def Bandpass_Mat(Funs, fileFull_input, fileFull_output = None,
         fileFull_output = \
             '.'.join(fileFull_input.split('.')[0:-1]) + '_bandpass.set'
             
-    Funs.Bandpass_Mat_Wrap(fileFull_input, fileFull_output, Flow, Fhigh, order)
+    Funs.Bandpass_Mat_Wrap(fileFull_input, fileFull_output, \
+                           float(Flow), float(Fhigh), order)
     
 def Notch_Mat(Funs, fileFull_input, fileFull_output = None,
               Fn = 60, Fw = 4, order = 2):
@@ -67,7 +67,8 @@ def Notch_Mat(Funs, fileFull_input, fileFull_output = None,
         fileFull_output = \
             '.'.join(fileFull_input.split('.')[0:-1]) + '_notch.set'
             
-    Funs.Bandpass_Mat_Wrap(fileFull_input, fileFull_output)
+    Funs.Notch_Mat_Wrap(fileFull_input, fileFull_output, \
+                        float(Fn), float(Fw), order)
     
 def PA_Removal(Funs, fileFull_input, fileFull_output = None):
     #Set default output filename to <inputfile> - <extension> + '_bcg.set'
@@ -78,7 +79,7 @@ def PA_Removal(Funs, fileFull_input, fileFull_output = None):
     Funs.PA_Removal(fileFull_input, fileFull_output)
     
 def term(Funs):   
-    #TEST:Funs.terminate()
+    Funs.terminate()
     print('Matlab runtime compiler terminated')
 
     
