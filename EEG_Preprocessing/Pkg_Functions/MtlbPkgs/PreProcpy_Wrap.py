@@ -13,7 +13,8 @@ def init():
     print('Matlab Runtime compiler initialized \n')
     return Funs
 def BV2Set(Funs, fileFull_input):
-    #Converts Brainvision format to eeglab Set file to be used for other MATLAB
+    """
+    Converts Brainvision format to eeglab Set file to be used for other MATLAB
     #   Processing
     #inputs:
     #   Funs - initialized matlab runtime compiler package (run Funs = init() first)
@@ -36,13 +37,31 @@ def BV2Set(Funs, fileFull_input):
     # Output:
     #   complete - returns 1 on function completion
     #   outputFile - eeglab set file which contains raw eeg struct
-    
+    """
     
     Funs.BV2Set_Wrap(fileFull_input)
     print('BV file saved as Set file')
     
 def GA_Removal(Funs, fileFull_input, fileFull_output = None):
-    #Set default output filename to <inputfile> - <extension> + '_gradient.set'
+    """
+    Removes fMRI induced gradient artifact from 
+    #
+    #%Takes in eeglab set file with EEG struct and Removes EEG Gradient Artifact 
+    %   induced by MRI Scanner using the fmrib eeglab plugin pop_fmrib_fastr 
+    %   This should be the first step in preprocessing, as the GA removal works
+    %   better before other filtering, and other filtering tequniques may
+    %   require clean signals
+    %Input: 
+    #   Funs - initialized matlab runtime compiler package (run Funs = init() first)
+    %   fileFull_output: full path for eeglab struct file that includes the following:
+    %       EEG - [eeglab EEG struct] EEG without Gradient artifact removed
+    %   output_path: full path for directory which the following file is saved:
+    %       fileFull_output - [eeglab set file] set file saved containing EEG struct
+    %                    
+    %Output:
+    %   output_EEG
+    %   EEG_filtered - [eeglab EEG format] EEG with GA removed
+    """
     if fileFull_output == None:
         fileFull_output = \
             '.'.join(fileFull_input.split('.')[0:-1]) + '_gradient.set'
@@ -52,6 +71,27 @@ def GA_Removal(Funs, fileFull_input, fileFull_output = None):
     
 def Bandpass_Mat(Funs, fileFull_input, fileFull_output = None, 
                  Flow = 0.5, Fhigh = 70, order = 2):
+    """
+    %Applys bandpass filter on eeglab EEG struct
+    %   For filter design, low order filters are used because maintaing integrity
+    %    of wanted band if far more important than fully rejecting unwanted
+    %    frequencies
+    %Input:
+    %   fileFull_input [string] - full input filepath set file containing the following:
+    %       EEG [eeglab EEG struct] - EEG struct before bandpass filter
+    %   fileFull_output [string] - full filename and dir to save filtered EEG to
+    %        Default - '<fileDir_input>/<fileName_input>_bandpass.set'
+    %   Flow [float] - lowest wanted frequency for filter
+    %        Default - 0.5 Hz
+    %   Fhigh [float] - highest wanted frequency for filter 
+    %        Default - 70 Hz
+    %   order [int] - filter order for butterworth filter
+    %        Default - 2
+    %Output:
+    %   complete - returns 1 on successful program run
+    %       EEG - [eeglab EEG format] bandpassed EEG inside set file
+    """
+    
     #Set default output filename to <inputfile> - <extension> + '_bandpass.set'
     if fileFull_output == None:
         fileFull_output = \
@@ -62,6 +102,24 @@ def Bandpass_Mat(Funs, fileFull_input, fileFull_output = None,
     
 def Notch_Mat(Funs, fileFull_input, fileFull_output = None,
               Fn = 60, Fw = 4, order = 2):
+    """
+    %Applys Notch filter on eeglab EEG struct to remove radient electrical
+    %noise
+    %Input:
+    %   fileFull_input [string] - full input filepath set file containing the following:
+    %       EEG [eeglab EEG struct] - EEG struct before notch filter
+    %   fileFull_output [string] - full filename and dir to save filtered EEG to
+    %        Default - '<fileDir_input>/<fileName_input>_bandpass.set'
+    %   Fn [float] - Desired frequency to remove
+    %        Default - 60 Hz
+    %   Fw [float] - width of notch filter cutoffs 
+    %        Default - 4 Hz
+    %   order [int] - filter order for butterworth filter
+    %        Default - 2
+    %Output:
+    %   complete - returns 1 on successful program run
+    %       EEG - [eeglab EEG format] bandpassed EEG inside set file
+    """
     #Set default output filename to <inputfile> - <extension> + '_notch.set'
     if fileFull_output == None:
         fileFull_output = \
@@ -71,6 +129,18 @@ def Notch_Mat(Funs, fileFull_input, fileFull_output = None,
                         float(Fn), float(Fw), order)
     
 def PA_Removal(Funs, fileFull_input, fileFull_output = None):
+    """
+    %Takes in eeg and removes the ECG and BCG  Pulse Artifacts from EEG
+    %Uses seperate functions from legacy code to remove artifacts
+    %Input: 
+    %   fileFull_input: full path for eeglab struct file that includes the following:
+    %       EEG - [eeglab EEG struct] EEG without Gradient artifact removed
+    %   fileFull_output: full path for directory which the following file is saved:
+    %       fileFull_output - [eeglab set file] set file saved containing EEG struct                    
+    %Output:
+    %   EEG_filtered - [eeglab EEG format] EEG with GA removed
+    """
+    
     #Set default output filename to <inputfile> - <extension> + '_bcg.set'
     if fileFull_output == None:
         fileFull_output = \
