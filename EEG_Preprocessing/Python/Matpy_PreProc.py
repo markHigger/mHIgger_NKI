@@ -5,13 +5,13 @@ Created on Wed Aug 22 14:51:42 2018
 
 @author: markhigger
 """
-import PreProcpy_MatFun_Wraps as Wrap
+import PreProc_MatFun_Wraps as Wrap
 import os
 
 def preProc(fileFull_input, fileDir_output):
     #get base file names and directories, currntly only works for unix dirs
     fileParts_input = fileFull_input.split('/')
-    fileDir_input = '/'.join(fileParts_input[0:-1])
+    fileDir_input = '/'.join(fileParts_input[0:-1]) + '/'
     fileName_input = fileParts_input[-1] #input file with extension
     fileName_base = '.'.join(fileName_input.split('.')[0:-1]) #input file w/o extension
     
@@ -22,7 +22,6 @@ def preProc(fileFull_input, fileDir_output):
     #calculate file names in input directory s
     fileName_raw = fileDir_input + fileName_base + '.eeg'
     fileName_set = fileDir_input + fileName_base + '.set'
-    print(fileName_set)
     
     #calculate file names in output file directory
     fileName_gradient = fileDir_output + fileName_base + '_gradient.set'
@@ -87,7 +86,7 @@ def preProc(fileFull_input, fileDir_output):
     #terminate matlab runtime compiler
     Wrap.term(Funs)
 
-fileFull_input = '/home/mhigger/Desktop/EEG_data/EEG_20180713_Test_02_ThePresent.vhdr'
+fileFull_input = '/home/mhigger/Desktop/EEG_data/EEG_fMRI_20180822_0001_Checkerboard_02.eeg'
 fileDir_output = '/home/mhigger/Desktop/EEG_data/Processed'
 
 preProc(fileFull_input, fileDir_output)
