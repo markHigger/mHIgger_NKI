@@ -87,7 +87,7 @@ def preProc(fileFull_input, fileDir_output):
     Wrap.term(Funs)
 
 fileFull_input = '/home/mhigger/Desktop/EEG_data/EEG_fMRI_20180822_0001_Checkerboard_02.eeg'
-fileDir_output = '/home/mhigger/Desktop/EEG_data/Processed'
+fileDir_output = '/home/mhigger/Desktop/EEG_data/Processed/'
 
 preProc(fileFull_input, fileDir_output)
 
