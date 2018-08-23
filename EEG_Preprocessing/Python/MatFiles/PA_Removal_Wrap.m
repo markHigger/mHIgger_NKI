@@ -19,7 +19,7 @@ if isempty(fileFull_output)
     %calculate output filename as:
     %   <fileDir_output>/<fileName_input>_gradient.set
     fileFull_output = fullfile(fileDir_input, ...
-                        [fileName_input, '_gradient', '.set']);
+                        [fileName_input, '_bcg', '.set']);
 end
 
 %load in EEG 
