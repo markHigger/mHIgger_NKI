@@ -6,16 +6,17 @@ Created on Wed Aug 22 14:51:42 2018
 @author: markhigger
 """
 import PreProcpy_Wrap as Wrap
-import os.path
+import os
 
 #get base file names and directories
-fileDir_input = '~/Desktop/EEG_data/'
+fileDir_input = '/home/mhigger/Desktop/EEG_data/'
 fileDir_output = fileDir_input
 fileName_base = 'EEG_20180713_Test_02_ThePresent'
 
-#calculate file names in input directory 
+#calculate file names in input directory s
 fileName_raw = fileDir_input + fileName_base + '.eeg'
 fileName_set = fileDir_input + fileName_base + '.set'
+print(fileName_set)
 
 #calculate file names in output file directory
 fileName_gradient = fileDir_output + fileName_base + '_gradient.set'
@@ -24,7 +25,7 @@ fileName_notch = fileDir_output + fileName_base + '_notch.set'
 fileName_bcg = fileDir_output + fileName_base + '_bcg.set'
 
 #check if files exist to compute what processing needs to be done
-FileExists_set = os.path.isfile(fileName_set) 
+FileExists_set = os.path.exists(fileName_set) 
 FileExists_gradient = os.path.isfile(fileName_gradient)
 FileExists_bandpass = os.path.isfile(fileName_bandpass)
 FileExists_notch = os.path.isfile(fileName_notch)
