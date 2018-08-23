@@ -76,7 +76,7 @@ def PA_Removal(Funs, fileFull_input, fileFull_output = None):
         fileFull_output = \
             '.'.join(fileFull_input.split('.')[0:-1]) + '_bcg.set'
             
-    Funs.PA_Removal(fileFull_input, fileFull_output)
+    Funs.PA_Removal_Wrap(fileFull_input, fileFull_output)
     
 def term(Funs):   
     Funs.terminate()

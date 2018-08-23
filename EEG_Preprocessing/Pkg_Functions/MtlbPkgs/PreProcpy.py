@@ -29,15 +29,13 @@ FileExists_gradient = os.path.isfile(fileName_gradient)
 FileExists_bandpass = os.path.isfile(fileName_bandpass)
 FileExists_notch = os.path.isfile(fileName_notch)
 FileExists_bcg = os.path.isfile(fileName_bcg)
-
 #Check which processing needs to be done, skip Processing if a file exits where
 #   Processing or any Processing after exists
 skip_bcg = FileExists_bcg
 skip_notch = FileExists_notch or skip_bcg
 skip_bandpass = FileExists_bandpass or skip_notch
 skip_gradient = FileExists_gradient or skip_bandpass
-skip_bcg = FileExists_bcg or skip_gradient
-skip_set = FileExists_set or skip_bcg
+skip_set = FileExists_set or skip_gradient
 
 
 #initialize matlab runtime compiler with preprocessor functions
