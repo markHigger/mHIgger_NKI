@@ -86,9 +86,17 @@ def preProc(fileFull_input, fileDir_output):
     #terminate matlab runtime compiler
     Wrap.term(Funs)
 
-fileFull_input = '/home/mhigger/Desktop/EEG_data/EEG_fMRI_20180822_0001_Checkerboard_02.eeg'
-fileDir_output = '/home/mhigger/Desktop/EEG_data/Processed/'
-
-preProc(fileFull_input, fileDir_output)
+fileDir_input = '/home/mhigger/Desktop/EEG_data/Scan_2018_08_30/'
+filePaths_input = []
+filePaths_input.append(fileDir_input + 'EEG_fMRI_20180830_01_Checkerboard_Flash_Inside')
+filePaths_input.append(fileDir_input + 'EEG_fMRI_20180830_02_ThePresent_Inside')
+filePaths_input.append(fileDir_input + 'EEG_fMRI_20180830_03_Checkerboard_Flash_Inside')
+filePaths_input.append(fileDir_input + 'EEG_fMRI_20180830_04_Checkerboard_Flash_Inside')
+filePaths_input.append(fileDir_input + 'EEG_fMRI_20180830_05_ThePresent_Flash_Inside')
+filePaths_input.append(fileDir_input + 'EEG_fMRI_20180830_06_Checkerboard_Flash_Inside')
+#fileFull_input = '/home/mhigger/Desktop/EEG_data/EEG_fMRI_20180822_0001_Checkerboard_02.eeg'
+fileDir_output = '/home/mhigger/Desktop/EEG_data/Scan_2018_08_30/Processed/'
+for filepath in filePaths_input:
+    preProc(filepath, fileDir_output)
 
 
