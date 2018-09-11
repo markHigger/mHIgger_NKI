@@ -44,7 +44,7 @@ clear('fileMat');
 EEG_input.data = double(EEG_input.data);
 
 %Uses Gradient Artifact removal from Legacy Code with default func perams
-EEG = pop_fmrib_fastr (EEG_input, [], 10, 30, 'R128', 0, 0, 0, 0, 0, 0, [], 0);
+EEG = pop_fmrib_fastr (EEG_input, [], 10, 30, 'R128', 0, 0, 0, 0, 0, 0, [], 'auto');
 
 save(fileFull_output,'EEG');
 
