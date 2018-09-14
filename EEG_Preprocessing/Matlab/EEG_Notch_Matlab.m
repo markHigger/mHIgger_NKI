@@ -1,4 +1,4 @@
-function EEG_filtered = EEG_Notch_Matlab(EEG_input, Fn)
+function EEG_filtered = EEG_Notch_Matlab(EEG_input, Fn, Wn, order)
 %Applys Notch filter on eeglab EEG struct to remove radient electrical
 %noise
 %Input:
@@ -7,12 +7,18 @@ function EEG_filtered = EEG_Notch_Matlab(EEG_input, Fn)
 
 EEG_data = double(EEG_input.data);
 % Bandpass frequency range cutoff based on sampling rate
-Fn_lo = Fn - 2;
-Fn_hi = Fn + 2;
+if ~exist('Wn', 'var')
+    Wn = 4;
+end
+Fn_lo = Fn - Wn/2;
+Fn_hi = Fn + Wn/2;
 Wnotch = [Fn_lo Fn_hi]*2/EEG_input.srate;
 
 %Design Low order butterworth Filter 
-N = 2;
+if ~exist('order', 'var')
+    order = 2;
+end
+N = order;
 [a,b]=butter(N,Wnotch,'stop');
 
 %Filter data

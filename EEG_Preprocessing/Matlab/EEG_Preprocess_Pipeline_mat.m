@@ -81,10 +81,10 @@ fileName_bcg = fullfile(filepath_output,[fileName,'_04_bcg']);
 fileName_resample = fullfile(filepath_output,[fileName,'_05_resample']);
 
 %TODO: Check if filenames exist in output path
-GAExist = (exist([fileName_gradient, '.mat'],'file'));
-BPExist = (exist([fileName_bandpass, '.mat'],'file'));
-NotchExist = (exist([fileName_notch, '.mat'],'file'));
-PAExist = (exist([fileName_bcg '.mat'],'file'));
+GAExist = (exist([fileName_gradient, '.mat'],'file') || exist([fileName_gradient, '.set'],'file'));
+BPExist = (exist([fileName_bandpass, '.mat'],'file') || exist([fileName_bandpass, '.set'],'file'));
+NotchExist = (exist([fileName_notch, '.mat'],'file') || exist([fileName_notch, '.set'],'file'));
+PAExist = (exist([fileName_bcg '.mat'],'file') || exist([fileName_bcg '.mat'],'file'));
 resampExist = (exist([fileName_resample, '.mat'],'file'));
 
 %Set Control flags - a step should not be performed if the proceding
@@ -126,10 +126,16 @@ if (removeNotch)
     %if previos filtering was skipped load EEG_BA from file 
     %   else use EEG_GA from Gradient removal step
     if ~removeGA
-        fileMat = load([fileName_gradient,'.mat']);
-        EEG_GA = fileMat.EEG;
-        clear('fileMat');
+        if exist([fileName_gradient,'.mat'], 'file')
+            fileMat = load([fileName_gradient,'.mat']);
+            EEG_GA = fileMat.EEG;
+            clear('fileMat');
+
+        elseif exist([fileName_gradient,'.set'], 'file')
+            EEG_GA = pop_loadset([fileName_gradient,'.set']);
+        end
     end
+    
     fprintf('applying bandpass filter\n')
 
     %perform bandpassfilter
@@ -137,7 +143,8 @@ if (removeNotch)
     %OPTIONAL TODO: specify freqs & filt info from function call
     F_low = 0.5;
     F_high = 70;
-    EEG_BP = EEG_Bandpass_Matlab(EEG_GA, F_low, F_high);
+    N = 3;
+    EEG_BP = EEG_Bandpass_Matlab(EEG_GA, F_low, F_high, N);
     %save output
     if (saveBP_Mat)
         fprintf('saving Bandpassfilterd eeg as mat file \n');
@@ -159,9 +166,15 @@ if (removeNotch)
     %if previos filtering was skipped load EEG_BP from file 
     %   else use EEG_BP from BP step
     if ~removeBP
-        fileMat = load([fileName_bandpass,'.mat']);
-        EEG_BP = fileMat.EEG;
-        clear('fileMat');
+        if exist([fileName_bandpass,'.mat'], 'file')
+            fileMat = load([fileName_bandpass,'.mat']);
+            EEG_BP = fileMat.EEG;
+            clear('fileMat');
+        
+        elseif exist([fileName_bandpass,'.set'], 'file')
+            EEG_BP = pop_loadset([fileName_bandpass,'.set']);
+        end
+        
     end
     fprintf('applying Notch filter\n')
 
@@ -190,10 +203,16 @@ end
 if (removePA)
     %if previos filtering was skipped load EEG_Notch from file 
     %   else use EEG_Notch from Notch removal step
+
     if ~removeNotch
-        fileMat = load([fileName_notch,'.mat']);
-        EEG_Notch = fileMat.EEG;
-        clear('fileMat');
+        if exist([fileName_notch,'.mat'], 'file')
+            fileMat = load([fileName_notch,'.mat']);
+            EEG_Notch = fileMat.EEG;
+            clear('fileMat');
+
+        elseif exist([fileName_notch,'.set'], 'file')
+            EEG_Notch = pop_loadset([fileName_notch,'.set']);
+        end
     end
     fprintf('applying PA removal \n')
 

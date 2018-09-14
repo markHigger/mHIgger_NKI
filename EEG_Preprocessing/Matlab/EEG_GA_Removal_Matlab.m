@@ -1,4 +1,4 @@
-function EEG_filtered = GA_Removal(input_EEG)
+function EEG_filtered = EEG_GA_Removal_Matlab(input_EEG)
 %Removes EEG Gradient Artifact induced by MRI Scanner using the bcilab  pop_fmrib_fastr
 %   This should be the first step in preprocessing, as the GA removal works
 %   better before other filtering
@@ -11,4 +11,4 @@ function EEG_filtered = GA_Removal(input_EEG)
 input_EEG.data = double(input_EEG.data);
 
 %Uses Gradient Artifact removal from Legacy Code with default func perams
-EEG_filtered = pop_fmrib_fastr (input_EEG, [], 10, 30, 'R128', 0, 0, 0, 0, 0, 0, [], 0);
+EEG_filtered = pop_fmrib_fastr (input_EEG, [], [], 30, 'R128', 0, 1, 0, 0, 0, 0, 32, 'auto');

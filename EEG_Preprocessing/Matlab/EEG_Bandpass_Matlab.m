@@ -1,4 +1,4 @@
-function EEG_filtered = EEG_Bandpass_Matlab(EEG_input, Flow, Fhigh)
+function EEG_filtered = EEG_Bandpass_Matlab(EEG_input, Flow, Fhigh, order)
 %Applys bandpass filter on eeglab EEG struct
 %   For filter design, low order filters are used because maintaing integrity
 %    of wanted band if far more important than fully rejecting unwanted
@@ -17,7 +17,7 @@ EEG_Data = double(EEG_input.data);
 Wn = [Flow Fhigh]*2/F_srate;
 
 % Filter order
-N = 2;
+N = order;
 
 % Create low order Butterworth filter
 [a,b] = butter(N,Wn); %bandpass filtering
