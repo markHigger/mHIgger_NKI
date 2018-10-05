@@ -35,3 +35,8 @@ clear('fileMat');
 
 EEG_input.pnts = length(EEG_input.data);
 EEG_resampled = pop_resample(EEG_input,resampleF);
+
+EEG = EEG_resampled; % tranfer filtered data to new EEG
+save(fileFull_output,'EEG');
+
+complete = 1; %return 1 on sucessful run
