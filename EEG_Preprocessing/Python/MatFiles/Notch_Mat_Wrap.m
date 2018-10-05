@@ -5,7 +5,7 @@ function complete = Notch_Mat_Wrap(fileFull_input, fileFull_output, Fn, Fw, orde
 %   fileFull_input [string] - full input filepath set file containing the following:
 %       EEG [eeglab EEG struct] - EEG struct before notch filter
 %   fileFull_output [string] - full filename and dir to save filtered EEG to
-%        Default - '<fileDir_input>/<fileName_input>_bandpass.set'
+%        Default - '<fileDir_input>/<fileName_input>_notch.set'
 %   Fn [float] - Desired frequency to remove
 %        Default - 60 Hz
 %   Fw [float] - width of notch filter cutoffs 
@@ -14,7 +14,7 @@ function complete = Notch_Mat_Wrap(fileFull_input, fileFull_output, Fn, Fw, orde
 %        Default - 2
 %Output:
 %   complete - returns 1 on successful program run
-%       EEG - [eeglab EEG format] bandpassed EEG inside set file
+%       EEG - [eeglab EEG format] Notch filtered EEG inside set file
 
 %% setup
 complete = 0; %return 0 on unsucessful run

@@ -1,4 +1,4 @@
-function complete = GA_Removal_Wrap(fileFull_input, fileFull_output)
+function complete = GA_Removal_Wrap(fileFull_input, fileFull_output, ECGChan, PCAs)
 %Takes in eeglab set file with EEG struct and Removes EEG Gradient Artifact 
 %   induced by MRI Scanner using the fmrib eeglab plugin pop_fmrib_fastr 
 %   This should be the first step in preprocessing, as the GA removal works
@@ -33,7 +33,12 @@ if nargin == 1
     fileFull_output = fullfile(fileDir_input, ...
                         [fileName_input, '_gradient', '.set']);
 end
-
+if ~exist('ECGChan')
+    ECGChan = 32;
+end
+if ~exist('PCAs')
+    PCAs = 'auto';
+end
 
 %load in EEG 
 fileMat = load('-mat', fileFull_input);
@@ -44,7 +49,7 @@ clear('fileMat');
 EEG_input.data = double(EEG_input.data);
 
 %Uses Gradient Artifact removal from Legacy Code with default func perams
-EEG = pop_fmrib_fastr (EEG_input, [], 10, 30, 'R128', 0, 0, 0, 0, 0, 0, [], 'auto');
+EEG = pop_fmrib_fastr (EEG_input, [], [], [], 'R128', 1, 1, [], [], [], [], 32, 'auto');
 
 save(fileFull_output,'EEG');
 
