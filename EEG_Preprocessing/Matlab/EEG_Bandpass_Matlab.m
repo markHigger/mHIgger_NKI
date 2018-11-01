@@ -28,6 +28,7 @@ for chanIdx = 1:nChannels
     % Bandpass filter signal with Butterworth filter
     filterData(chanIdx,:) = filtfilt(a,b,EEG_Data(chanIdx,:));
 end
+%%
 
 EEG_filtered = EEG_input;
 EEG_filtered.data = filterData;

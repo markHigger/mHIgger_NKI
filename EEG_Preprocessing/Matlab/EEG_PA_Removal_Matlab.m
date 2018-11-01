@@ -9,7 +9,7 @@ function EEG_filtered = EEG_PA_Removal_Matlab(EEG_input)
 
 %get info from EEG
 nChannels = EEG_input.nbchan; % Number of channels
-channelEEG = 1:nChannels;
+channelEEG = [1:31 33:nChannels];
 F_srate = EEG_input.srate; % Sampling rate
 includedsamples = 1:length(EEG_input.data);
 

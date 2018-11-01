@@ -11,4 +11,4 @@ function EEG_filtered = EEG_GA_Removal_Matlab(input_EEG)
 input_EEG.data = double(input_EEG.data);
 
 %Uses Gradient Artifact removal from Legacy Code with default func perams
-EEG_filtered = pop_fmrib_fastr (input_EEG, [], [], 30, 'R128', 0, 1, 0, 0, 0, 0, 32, 'auto');
+EEG_filtered = pop_fmrib_fastr (input_EEG, [], [], [], 'R 25', 1, 1, [], [], [], [], 32, 'auto');
