@@ -1,0 +1,591 @@
+<html><meta charset="UTF-8"><pre>
+<font color=blue>mcc -W python:PreProcPkg_v5_2 -T link:lib -d /Users/markhigger/Documents/NKI/mHigger_NKI/EEG_Preprocessing/Python/PreProcPkg_v5_2/for_testing -v /Users/markhigger/Documents/NKI/mHigger_NKI/EEG_Preprocessing/Python/MatFiles/Bandpass_Mat_Wrap.m /Users/markhigger/Documents/NKI/mHigger_NKI/EEG_Preprocessing/Python/MatFiles/BV2Set_Wrap.m /Users/markhigger/Documents/NKI/mHigger_NKI/EEG_Preprocessing/Python/MatFiles/GA_Removal_Wrap.m /Users/markhigger/Documents/NKI/mHigger_NKI/EEG_Preprocessing/Python/MatFiles/Notch_Mat_Wrap.m /Users/markhigger/Documents/NKI/mHigger_NKI/EEG_Preprocessing/Python/MatFiles/PA_Removal_Wrap.m /Users/markhigger/Documents/NKI/mHigger_NKI/EEG_Preprocessing/Python/MatFiles/Resample_Mat_Wrap.m -a /Users/markhigger/Documents/MATLAB/TOOLBOX/EEG_PreProc_funs/fmrib1.21/fmrib_fastr.m -a /Users/markhigger/Documents/MATLAB/TOOLBOX/EEG_PreProc_funs/fmrib1.21/fmrib_pas.m -a /Users/markhigger/Documents/MATLAB/TOOLBOX/CompilerFuncs/pop_resample_comp.m </font>
+Compiler version: 6.5 (R2017b)
+
+Dependency analysis by REQUIREMENTS.
+
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/cvx/builtins] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/cvx/commands] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/cvx/functions] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/cvx/lib] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/cvx/structures] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/cvx] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/vlfeat/toolbox/fisher] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/vlfeat/toolbox/vlad] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/vlfeat/toolbox/gmm] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/vlfeat/toolbox/slic] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/vlfeat/toolbox/special] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/vlfeat/toolbox/sift] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/vlfeat/toolbox/quickshift] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/vlfeat/toolbox/plotop] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/vlfeat/toolbox/mser] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/vlfeat/toolbox/misc] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/vlfeat/toolbox/kmeans] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/vlfeat/toolbox/imop] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/vlfeat/toolbox/geometry] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/vlfeat/toolbox/aib] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/vlfeat/toolbox] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/manopt/manopt] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/manopt/manopt/manifolds] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/manopt/manopt/manifolds/complexcircle] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/manopt/manopt/manifolds/euclidean] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/manopt/manopt/manifolds/fixedrank] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/manopt/manopt/manifolds/grassmann] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/manopt/manopt/manifolds/oblique] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/manopt/manopt/manifolds/rotations] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/manopt/manopt/manifolds/sphere] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/manopt/manopt/manifolds/stiefel] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/manopt/manopt/manifolds/symfixedrank] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/manopt/manopt/privatetools] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/manopt/manopt/solvers] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/manopt/manopt/solvers/conjugategradient] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/manopt/manopt/solvers/linesearch] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/manopt/manopt/solvers/neldermead] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/manopt/manopt/solvers/pso] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/manopt/manopt/solvers/steepestdescent] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/manopt/manopt/solvers/trustregions] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/manopt/manopt/tools] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/manopt] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/poblano_toolbox] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/nway] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/mtt] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/tensor_toolbox] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/YALL1] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/TFOCS] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/SVD] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/PROPACK] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/gui] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/utils] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/lrr] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/lrr/ADM] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/lrr/ALM] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/lrr/EALM] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/lrr/FastLADMAP] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/lrr/IALM] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/lrr/LADMAP] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/lrr/ROSL] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/mc] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/mc/FPC] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/mc/GROUSE] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/mc/IALM-MC] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/mc/IALM-MC/utils] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/mc/LMaFit] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/mc/LMaFit-SMS] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/mc/LMaFit/utils] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/mc/LRGeomCG] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/mc/MC-NMF] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/mc/MC-NMF/paper] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/mc/MC_logdet] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/mc/OP-RPCA] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/mc/OptSpace] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/mc/OR1MP] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/mc/OR1MP/largescale_ops] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/mc/PG-RMC] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/mc/PG-RMC/Mex] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/mc/RPCA-GD] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/mc/ScGrassMC] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/mc/SVP] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/mc/SVT] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/nmf] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/nmf/Deep-Semi-NMF] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/nmf/DRMF] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/nmf/ENMF] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/nmf/iNMF] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/nmf/LNMF] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/nmf/ManhNMF] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/nmf/NeNMF] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/nmf/NMF-ALS] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/nmf/NMF-ALS-OBS] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/nmf/NMF-DTU-Toolbox] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/nmf/NMF-MU] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/nmf/NMF-PG] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/nmf/nmfLS2] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/nmf/PNMF] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/nmf/Semi-NMF] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/ntf] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/ntf/bcuNCP] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/ntf/bcuNTD] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/ntf/betaNTF] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/ntf/lraNTD] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/ntf/NTD-APG] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/ntf/NTD-HALS] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/ntf/NTD-MU] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/ADM] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/ALM] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/APG] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/APG_PARTIAL] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/AS-RPCA] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/BRPCA-MD] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/BRPCA-MD-NSS] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/DECOLOR] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/DECOLOR/gco-v3.0] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/DECOLOR/gco-v3.0/matlab] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/DECOLOR/gco-v3.0/matlab/bin] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/DECOLOR/internal] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/DUAL] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/EALM] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/flip-SPCP-max-QN] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/flip-SPCP-sum-SPG] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/FPCP] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/FW-T] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/GA] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/GM] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/GoDec] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/GreGoDec] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/IALM] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/IALM_BLWS] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/IALM_LMSVDS] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/L1F] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/Lag-SPCP-QN] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/Lag-SPCP-SPG] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/LSADM] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/MBRMF] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/MBRMF/mex] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/MBRMF/Utilities] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/MoG-RPCA] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/noncvxRPCA] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/NSA1] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/NSA1/Subroutines] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/NSA2] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/OPRMF] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/PCP] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/PRMF] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/PSPG] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/PSPG/Subroutines] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/R2PCP] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/RegL1-ALM] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/RPCA] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/SPCP] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/SPGL1] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/SSGoDec] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/STOC-RPCA] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/SVT] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/TFOCS] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/TFOCS-EC] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/TFOCS-IC] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/TGA] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/rpca/VBRPCA] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/st] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/st/GOSUS] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/st/GRASTA] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/st/MEDRoP] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/st/pROST] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/st/ReProCS] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/td] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/td/CP-ALS] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/td/CP-APR] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/td/CP2] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/td/HoRPCA-IALM] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/td/HoRPCA-S] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/td/HoRPCA-S-NCX] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/td/HoSVD] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/td/itl] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/td/OSTD] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/td/OSTD/STOC-RPCA] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/td/RLRT] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/td/RLRT/rpca] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/td/RLRT/tc] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/td/RLRT/utils] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/td/RSTD] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/td/RSTD/utils] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/td/t-SVD] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/td/Tucker-ADAL] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/td/Tucker-ALS] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/ttd] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/ttd/3WD] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/ttd/ADMM] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/ttd/MAMR] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/algorithms/ttd/RMAMR] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/dataset] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/dataset/trafficdb] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/figs] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/manopt/checkinstall] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/manopt/examples] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/poblano_toolbox/doc] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/poblano_toolbox/doc/images] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/tensor_toolbox/doc] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/tensor_toolbox/doc/html] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/tensor_toolbox/doc/images] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/tensor_toolbox/met] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/TFOCS/examples] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/TFOCS/examples/demos] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/TFOCS/examples/largescale] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/TFOCS/examples/smallscale] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/TFOCS/examples/smallscale/reference_solutions] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/TFOCS/mexFiles] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/vlfeat] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/vlfeat/apps] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/vlfeat/apps/recognition] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/vlfeat/data] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/vlfeat/docsrc] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/vlfeat/docsrc/dtd] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/vlfeat/docsrc/dtd/xhtml1] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/vlfeat/docsrc/figures] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/vlfeat/docsrc/images] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/vlfeat/docsrc/tutorials] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/vlfeat/make] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/vlfeat/src] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/vlfeat/toolbox/demo] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/vlfeat/toolbox/xtest] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/vlfeat/vl] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/vlfeat/vlfeat.xcodeproj] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/vlfeat/vlfeat.xcodeproj/xcshareddata] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/vlfeat/vlfeat.xcodeproj/xcshareddata/xcschemes] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/YALL1/Demos] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/libs/YALL1/Utilities] 
+[Warning: Name is nonexistent or not a directory:
+/Users/markhigger/Documents/MATLAB/TOOLBOX/MiscAddAll/lrslibrary/output] 
+Parsing file "/Users/markhigger/Documents/NKI/mHigger_NKI/EEG_Preprocessing/Python/MatFiles/Bandpass_Mat_Wrap.m"
+	(Referenced from: "Compiler Command Line").
+Parsing file "/Users/markhigger/Documents/NKI/mHigger_NKI/EEG_Preprocessing/Python/MatFiles/BV2Set_Wrap.m"
+	(Referenced from: "Compiler Command Line").
+Parsing file "/Users/markhigger/Documents/NKI/mHigger_NKI/EEG_Preprocessing/Python/MatFiles/GA_Removal_Wrap.m"
+	(Referenced from: "Compiler Command Line").
+Parsing file "/Users/markhigger/Documents/NKI/mHigger_NKI/EEG_Preprocessing/Python/MatFiles/Notch_Mat_Wrap.m"
+	(Referenced from: "Compiler Command Line").
+Parsing file "/Users/markhigger/Documents/NKI/mHigger_NKI/EEG_Preprocessing/Python/MatFiles/PA_Removal_Wrap.m"
+	(Referenced from: "Compiler Command Line").
+Parsing file "/Users/markhigger/Documents/NKI/mHigger_NKI/EEG_Preprocessing/Python/MatFiles/Resample_Mat_Wrap.m"
+	(Referenced from: "Compiler Command Line").
+Deleting 91 temporary MEX authorization files.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/546e-abb7-c496-257e_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/fd44-1cff-10c8-41ee_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/b861-530e-10e9-ca5f_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/09e4-dc0d-8a92-d7cb_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/cca8-36b0-f4cd-3ae1_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/2f06-cf37-fa00-ba48_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/ec8c-218d-12cc-b9e1_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/f5dc-d680-5c7d-75d8_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/b031-32a8-5555-02b6_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/5c16-ad3b-d350-fd49_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/2971-f0bc-aa5d-9aa8_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/86c5-18e9-4617-1cbd_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/cbe2-9e6a-8504-20e0_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/642b-2994-2172-8979_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/3c2e-b9ad-0c0e-68a1_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/29c6-b8e0-053b-d753_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/c879-718a-2cd6-cfc3_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/a0af-28d7-f673-dccf_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/cf3c-e265-e02d-3f76_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/f581-acfd-ba6d-ce42_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/0371-e87e-b32b-f8e2_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/e0be-d209-c47e-5bd9_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/324f-f07a-aabf-5778_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/6dbc-1936-4070-e934_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/5f47-79fd-5623-57d9_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/8052-ff3e-6694-e9ff_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/1cdf-e276-11a2-a591_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/163f-879d-c673-fe67_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/3ff2-5de0-20d8-9303_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/d23d-b201-a67d-4fe2_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/9b65-847f-8450-7003_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/17ea-cad7-37ca-8420_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/96dd-61e9-0fef-f15b_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/78bb-966e-9b75-6ece_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/1773-681d-59ae-e7c2_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/8daf-8213-6a63-0494_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/71c5-f99b-cc87-29be_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/daf3-7871-a937-b322_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/b739-0420-c649-3b8c_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/2e30-ba89-0c44-0685_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/ddc8-9003-3437-766d_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/35bd-2b1f-be7b-0e1b_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/08b5-e1bb-4a58-a9dd_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/5862-caca-0b70-76d1_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/1d18-7ed7-9493-af54_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/1a39-a7ba-8803-e62d_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/43a1-e230-d66c-51bb_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/4b7d-e904-4c3e-0e02_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/b42c-148f-5dfe-6599_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/d095-1de6-77ae-4592_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/ff44-4786-1b81-251f_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/f1f0-8e1b-1d63-3f99_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/548c-c2f1-1d70-cbf5_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/f681-242f-4be1-1d6f_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/9726-63c3-fd6f-03e5_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/7d3e-43a7-1f4e-017a_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/a880-43eb-aff9-af08_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/6c14-2f7b-9209-fbed_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/6678-14ac-a95c-e57c_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/6460-633b-bdcb-e22b_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/aaa1-118a-b57f-ea66_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/6c04-dbd0-1f6e-616a_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/5852-7967-88c5-e2eb_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/3b90-f8e5-abaa-9ffc_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/c3a5-37fd-9062-5032_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/162f-6998-e8eb-6b90_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/0139-e049-5855-6724_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/3083-ab74-b03b-5a1c_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/c649-ccc4-c2ee-21c7_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/d15d-31af-75c9-9e6a_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/3cad-1e5e-0beb-183f_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/a54d-fccb-c975-e707_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/e3a7-53ee-b806-1d44_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/b4c1-65bf-600d-8845_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/ea55-dd69-4402-e76f_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/2604-9f6a-9659-ecbf_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/cb86-9257-c82b-902e_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/1f7c-7eda-9d39-da38_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/cd0e-f94b-1ff8-3866_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/12eb-452f-6774-b6c3_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/ef77-ab20-6145-19c0_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/7a94-cf18-2ffc-4105_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/61a8-7e21-10d8-1593_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/90b2-9003-50f0-c7c1_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/3566-72dd-6e18-c44a_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/31bf-202d-1aa0-3bc6_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/1ac0-197c-6d6f-4c70_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/fd92-2ce6-6a80-a12a_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/f411-6890-8313-7f90_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/e35a-a0d8-9a19-d24a_44759.auth'.
+Removing: '/var/folders/h5/lh9cdkk15_x0hrg0yjmmr50w0000gn/T/1cfc-41d6-9aa1-e685_44759.auth'.
+Generating file "/Users/markhigger/Documents/NKI/mHigger_NKI/EEG_Preprocessing/Python/PreProcPkg_v5_2/for_testing/PreProcPkg_v5_2/__init__.py".
+Generating file "/Users/markhigger/Documents/NKI/mHigger_NKI/EEG_Preprocessing/Python/PreProcPkg_v5_2/for_testing/setup.py".
+Generating file "/Users/markhigger/Documents/NKI/mHigger_NKI/EEG_Preprocessing/Python/PreProcPkg_v5_2/for_testing/readme.txt".
+<font color=blue>Packaging...</font>
+Creating the bundle...
+Copying /Applications/MATLAB_R2017b.app/toolbox/compiler/maci64/setup.app to /Users/markhigger/Documents/NKI/mHigger_NKI/EEG_Preprocessing/Python/PreProcPkg_v5_2/for_redistribution/MyAppInstaller_web.app.
+Copying /Users/markhigger/Documents/NKI/mHigger_NKI/EEG_Preprocessing/Python/PreProcPkg_v5_2/for_redistribution/bundle.zip to /Users/markhigger/Documents/NKI/mHigger_NKI/EEG_Preprocessing/Python/PreProcPkg_v5_2/for_redistribution/MyAppInstaller_web.app/Contents/Resources/bundle.zip.
+Copying /Applications/MATLAB_R2017b.app/toolbox/compiler/Resources/default_splash.png to /Users/markhigger/Documents/NKI/mHigger_NKI/EEG_Preprocessing/Python/PreProcPkg_v5_2/for_redistribution/MyAppInstaller_web.app/Contents/Resources/splash.png.
+Copying /Applications/MATLAB_R2017b.app/toolbox/compiler/Resources/default_icon.icns to /Users/markhigger/Documents/NKI/mHigger_NKI/EEG_Preprocessing/Python/PreProcPkg_v5_2/for_redistribution/MyAppInstaller_web.app/Contents/Resources/installer.icns.
+Web based installer created at /Users/markhigger/Documents/NKI/mHigger_NKI/EEG_Preprocessing/Python/PreProcPkg_v5_2/for_redistribution/MyAppInstaller_web.app.
+Packaging complete.
+Elapsed packaging time was: 1 minutes and 50 seconds.
+</pre></html>
